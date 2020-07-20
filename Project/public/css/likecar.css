@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    padding:50px 400px;
+}
+.likecar{
+    font-size: 30px;
+    text-align: center;
+}
+.likecartb{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    margin-top: 70px;
+}
+.likecartb th{
+    font-size: 20px;
+    border-bottom:3px solid black ;
+}
+.likecartb tr{
+    border-bottom:1px solid black ;
+}
+.likecartb td{
+    height: 50px;
+}
+.xiaDan p{
+    margin-top: 20px;
+    font-size: 25px;
+    text-align: right;
+}
+.xiaDan p span{
+    color: red;
+}
+.xiaDan button{
+    width: 150px;
+    height: 30px;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid black;
+    transition: all .5s ease;
+}
+.xiaDan button:hover{
+    background-color: black;
+    color: white;
+}
+footer{
+    margin-top: 300px;
+}

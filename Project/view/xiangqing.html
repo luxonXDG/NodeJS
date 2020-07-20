@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/head.css">
+    <link type="text/css" rel="stylesheet" href="css/foot.css">
+    <link type="text/css" rel="stylesheet" href="css/xiangqing.css">
+</head>
+<body>
+<%- include('header.html')%>
+<main>
+    <section>
+        <div class="carTitle" data-value="<%=thisCarData[0].Id%>">
+            <img src="<%=thisCarData[0].feng%>">
+            <p class="carName">全 新 一 代 <span><%=thisCarData[0].title%></span></p>
+        </div>
+        <div class="peizhiBiao">
+            <form id="peizhiBiao">
+                <p>配置信息表</p>
+                <div class="theBox">
+                    <div>颜色：</div>
+                    <% for(let x = 0 ; x < colorData.length ; x++){%>
+                    <div class="dianJiBox1" data-value="<%=colorData[x].color%>"><%=colorData[x].color%></div>
+                    <%}%>
+                </div>
+                <div class="theBox">
+                    <div>配置：</div>
+                    <% for(let x = 0 ; x < peizhiData.length ; x++){%>
+                    <div class="dianJiBox2" data-value="<%=peizhiData[x].peizhi%>"><%=peizhiData[x].peizhi%></div>
+                    <%}%>
+                </div>
+                <div class="theBox">
+                    <div>指导价(税前)：</div>
+                    <div><span id="jiage"><%=thisCarAllPeizhiData[0].price%></span>RMB</div>
+                </div>
+                <div class="fR"><button type="button" id="addLikeCar">加入LikeCar</button></div>
+            </form>
+        </div>
+    </section>
+    <section>
+        <div class="carwenzi">车辆详细信息</div>
+        <table cellspacing="0" class="cheXingpeizhi">
+            <thead>
+            <tr>
+                <td>车型</td>
+                <td>所选颜色</td>
+                <td>所选配置</td>
+                <td>排量</td>
+                <td>变速箱</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><%=thisCarData[0].title%></td>
+                <td id="carColor"><%=thisCarAllPeizhiData[0].color%></td>
+                <td id="carPeizhi"><%=thisCarAllPeizhiData[0].peizhi%></td>
+                <td id="carPailang"><%=thisCarAllPeizhiData[0].pailiang%></td>
+                <td id="carAtmt"><%=thisCarAllPeizhiData[0].atmt%></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+<%- include('footer.html')%>
+<script src="js/jq.js"></script>
+<script src="js/xiQuery-V0.1.1.β.js"></script>
+<script src="js/header.js"></script>
+<script src="js/xiangqing.js"></script>
+</body>
+</html>

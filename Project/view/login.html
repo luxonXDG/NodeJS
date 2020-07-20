@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/head.css">
+    <link type="text/css" rel="stylesheet" href="css/foot.css">
+    <link type="text/css" rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<%- include('header.html')%>
+<main>
+    <div class="loginbox">
+        <p class="logintishi">登录到Volkswagen Family</p>
+        <form action="" method="" id="loginForm">
+            <p><input type="text" name="userName" id="userName" placeholder="用户名"><span class="red hide" id="userNameHint">*</span></p>
+            <p><input type="password" name="userPwd" id="userPwd" placeholder="密码"><span class="red hide" id="userPwdHint">*</span></p>
+            <button type="button" id="loginBtn">登陆</button>
+        </form>
+    </div>
+</main>
+<%- include('footer.html')%>
+<script src="js/jq.js"></script>
+<script src="js/header.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

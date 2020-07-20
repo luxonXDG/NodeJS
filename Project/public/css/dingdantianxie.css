@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+main{
+    padding: 50px 400px;
+}
+section{
+    padding: 30px 30px;
+    box-shadow: 0 0 20px #888888;
+}
+.zhuyao{
+    margin-top: 50px;
+}
+.dizhiBox{
+    margin-top: 30px;
+}
+.dizhixiangxi{
+    float: left;
+    padding:10px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px #888888;
+}
+.dizhixiangxihou{
+    color: white;
+    background-color: #888888;
+}
+.clearfloat{
+    clear:both
+}
+.dingdanBox{
+    box-shadow: 0 0 5px #888888;
+    overflow: hidden;
+    padding: 10px 10px;
+    margin-top: 30px;
+}
+.dingdanBox div{
+    float: left;
+    margin-left:30px;
+}
+.dingdanBox span{
+    font-weight: 600;
+    /*font-size: 20px;*/
+    color: #888888;
+}
+.dingdanDa{
+    margin-bottom:30px;
+}
+#zongJing{
+    font-size: 25px;
+    color: red;
+}
+button{
+    width: 150px;
+    height: 30px;
+    background-color: #888888;
+    color: white;
+    border: none;
+}
+.btnBox{
+    margin-top: 30px;
+}

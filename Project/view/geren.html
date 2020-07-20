@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/head.css">
+    <link type="text/css" rel="stylesheet" href="css/foot.css">
+    <link type="text/css" rel="stylesheet" href="css/geren.css">
+</head>
+<body>
+<%- include('header.html')%>
+<main>
+    <section>
+        <div class="honghu">
+            <div><img src="<%=userImg%>"></div><div><%=userName%></div><div class="ilike"><a href="likecar.html">我的LikeCar</a></div>
+        </div>
+    </section>
+    <section class="sec2">
+        <div>
+            <h2>已下单订单</h2>
+        </div>
+        <div class="dingdanDa">
+            <% for(let i = 0;i < dingdanArr.length;i++){%>
+            <% var d = new Date(dingdanArr[i].CreateTime)%>
+            <% var datetime=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();%>
+            <div class="dingdanBox" data-value="<%=dingdanArr[i].Id%>">
+                <div>订单号：<span><%=dingdanArr[i].Id%></span></div>
+                <div>车型：<span><%=dingdanArr[i].title%></span></div>
+                <div>配置：<span><%=dingdanArr[i].peizhi%></span></div>
+                <div>价格：<span><%=dingdanArr[i].price%></span></div>
+                <br>
+                <div>订购时间：<span><%=datetime%></span></div>
+            </div>
+            <%}%>
+        </div>
+    </section>
+    <section class="sec2">
+        <div>
+            <h2>我的地址</h2>
+        </div>
+        <div>
+            <% for(let i = 0;i < dizhiArr.length;i++){%>
+            <div class="dizhiHao" data-value="<%=dizhiArr[i].Id%>">
+                <div class="shouhuoren">
+                    <div>收货人：<span><%=dizhiArr[i].shouhuoren%></span></div>
+                    <div>电话：<span><%=dizhiArr[i].dianhua%></span></div>
+                </div>
+                <div class="dizhi">
+                    <div>地址：<span><%=dizhiArr[i].guo%><%=dizhiArr[i].shen%><%=dizhiArr[i].chen%><%=dizhiArr[i].cheng%><%=dizhiArr[i].qu%><%=dizhiArr[i].jie%></span></div>
+                </div>
+                <div class="dingwei"><button data-value="<%=dizhiArr[i].Id%>" class="delDiZhi">删除</button></div>
+            </div>
+            <%}%>
+        </div>
+        <div class="adddizhi">
+            <a href="dizhi.html"><button>添加新的地址</button></a>
+        </div>
+    </section>
+</main>
+<%- include('footer.html')%>
+<script src="js/jq.js"></script>
+<script src="js/header.js"></script>
+<script>
+    $(function () {
+        sessionStorage.pageName="geRen";
+        Xi(".test").on("click",function () {
+            Xi.post("xidegui.do",{name:"zhangsan",age:18,sex:1},function () {
+                
+            })
+        })
+        $(".dingdanBox").on("click",function () {
+           var dingdanId = $(this).attr("data-value") ;
+           $.ajax({
+               type:"post",
+               url:"dingdanxiang.do",
+               data:{dingdanId:dingdanId},
+               success:function (data) {
+                   if(data == "OK"){
+                       location.href = "dingDanXiangQing.html"
+                   }
+               }
+           })
+        });
+        $(".delDiZhi").on("click",function () {
+            var dizhiId = $(this).attr("data-value");
+            $.ajax({
+                type:"post",
+                url:"dizhiDel.do",
+                data:{dizhiId:dizhiId},
+                success:function (data) {
+                    if(data == "OK"){
+                        location.href = "geren.html";
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

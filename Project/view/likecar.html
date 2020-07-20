@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/head.css">
+    <link type="text/css" rel="stylesheet" href="css/foot.css">
+    <link type="text/css" rel="stylesheet" href="css/likecar.css">
+</head>
+<body>
+<%- include('header.html')%>
+<main>
+    <div class="likecar">喜欢的车</div>
+    <table class="likecartb">
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="checkboxAll">
+            </th>
+            <th>车型</th>
+            <th>颜色</th>
+            <th>版本</th>
+            <th>排量</th>
+            <th>变速箱</th>
+            <th>价格</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(let i = 0 ; i < dingdanData.length ; i++){%>
+        <tr>
+            <td><input type="checkbox" class="thisChebox" data-value="<%=dingdanData[i].price%>" value="<%=dingdanData[i].Id%>"></td>
+            <td><%=dingdanData[i].title%></td>
+            <td><%=dingdanData[i].color%></td>
+            <td><%=dingdanData[i].peizhi%></td>
+            <td><%=dingdanData[i].pailiang%></td>
+            <td><%=dingdanData[i].atmt%></td>
+            <td><%=dingdanData[i].price%></td>
+        </tr>
+        <%}%>
+        </tbody>
+    </table>
+    <div class="xiaDan">
+        <p>总价格:<span id="zongJia">0</span></p>
+        <p><button id="goumai">生成购车订单</button><button id="del">删除选中车型</button></p>
+    </div>
+</main>
+<%- include('footer.html')%>
+<script src="js/jq.js"></script>
+<script src="js/header.js"></script>
+<script>
+    let dingDanIdJiaGe = 0;
+    $(function () {
+        $("#checkboxAll").click(function () {
+            if(document.getElementById("checkboxAll").checked == true){
+                for(let i= 0;i<document.getElementsByClassName("thisChebox").length;i++){
+                    document.getElementsByClassName("thisChebox")[i].checked = true
+                }
+            }
+            else {
+                for(let i= 0;i<document.getElementsByClassName("thisChebox").length;i++){
+                    document.getElementsByClassName("thisChebox")[i].checked = false
+                }
+            }
+            dingDanIdJiaGe = 0;
+            for(let x = 0 ; x <document.getElementsByClassName("thisChebox").length;x++){
+                if(document.getElementsByClassName("thisChebox")[x].checked == true){
+                    let theBox = $(".thisChebox")[x];
+                    let thisJia =$(theBox).attr("data-value");
+                    dingDanIdJiaGe += Number(thisJia);
+                }
+            }
+            $("#zongJia").html(dingDanIdJiaGe)
+        });
+        $(".thisChebox").click(function () {
+            dingDanIdJiaGe = 0;
+            for(let x = 0 ; x <document.getElementsByClassName("thisChebox").length;x++){
+                if(document.getElementsByClassName("thisChebox")[x].checked == true){
+                    let theBox = $(".thisChebox")[x];
+                    let thisJia =$(theBox).attr("data-value");
+                    dingDanIdJiaGe += Number(thisJia);
+                }
+            }
+            $("#zongJia").html(dingDanIdJiaGe);
+        });
+        $("#del").click(function () {
+            var dingDanIdArr =[];
+            for(let i = 0 ; i <document.getElementsByClassName("thisChebox").length;i++){
+                if(document.getElementsByClassName("thisChebox")[i].checked == true){
+                    let thisId = document.getElementsByClassName("thisChebox")[i].value;
+                    dingDanIdArr.push(thisId);
+                }
+            }
+            if(dingDanIdArr.length == 0){
+                alert("至少选择一个车型")
+            }
+            else {
+                console.log(dingDanIdArr);
+                $.ajax({
+                    type:"post",
+                    url:"dingDanDel.do",
+                    data:{dingDanIdArr:dingDanIdArr},
+                    traditional:true,
+                    success:function (data) {
+                        console.log(data);
+                        if(data == "OK"){
+                            alert("删除成功");
+                            location.href = "likecar.html";
+                        }
+                    }
+                })
+            }
+        });
+        $("#goumai").click(function () {
+            var dingDanIdArr =[];
+            for(let i = 0 ; i <document.getElementsByClassName("thisChebox").length;i++){
+                if(document.getElementsByClassName("thisChebox")[i].checked == true){
+                    let thisId = document.getElementsByClassName("thisChebox")[i].value;
+                    dingDanIdArr.push(thisId);
+                }
+            }
+            if(dingDanIdArr.length == 0){
+                alert("至少选择一个车型")
+            }
+            else {
+                console.log(dingDanIdArr);
+                $.ajax({
+                    type:"post",
+                    url:"gouMaiChe.do",
+                    data:{dingDanIdArr:dingDanIdArr},
+                    traditional:true,
+                    success:function (data) {
+                        console.log(data);
+                        if(data == "OK"){
+                            location.href = "dingdantianxie.html";
+                        }
+                    }
+                })
+            }
+        })
+    })
+</script>
+</body>
+</html>

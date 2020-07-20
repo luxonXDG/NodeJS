@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<%- include('header.html')%>
+<% if(bannerUrl == 'OMG'){%>
+<div>服务器出错</div>
+<%}else{%>
+<video muted="muted" loop="loop" autoplay>
+    <source src="<%=bannerUrl%>" type="video/mp4" />
+</video>
+<%}%>
+<main>
+    <section class="sec1">
+        <div class="Biaoti">—   大众轿车系列   —</div>
+        <div class="jiaoChe">
+            <%var i = 0;%>
+            <% for(let x = 0 ; x < allCar.length ; x++){%>
+            <% if(i == 3){%>
+            <% i = 0;break;%>
+            <%}%>
+            <% if(allCar[x].CatoryId == 1){%>
+            <div class="carBox" data-id="<%=allCar[x].Id%>">
+                <p><img src="<%=allCar[x].feng%>"></p>
+                <p><span class="cheName"><%=allCar[x].title%></span></p>
+                <p>指导价：<span class="zhiDaoJia"><%=allCar[x].summary%></span>元</p>
+            </div>
+            <% i++;%>
+            <%}%>
+            <%}%>
+        </div>
+        <div class="more"><a href="#">查看更多</a></div>
+    </section>
+    <section class="sec2">
+        <div class="Biaoti">—   大众SUV系列   —</div>
+        <div class="jiaoChe">
+            <% for(let x = 0 ; x < allCar.length ; x++){%>
+            <% if(i == 3){%>
+            <% i = 0;break;%>
+            <%}%>
+            <% if(allCar[x].CatoryId == 2){%>
+            <div class="carBox" data-id="<%=allCar[x].Id%>">
+                <p><img src="<%=allCar[x].feng%>"></p>
+                <p><span class="cheName"><%=allCar[x].title%></span></p>
+                <p>指导价：<span class="zhiDaoJia"><%=allCar[x].summary%></span>元</p>
+            </div>
+            <% i++;%>
+            <%}%>
+            <%}%>
+        </div>
+        <div class="more"><a href="#">查看更多</a></div>
+    </section>
+    <section class="sec3">
+        <div class="Biaoti">—   大众旗舰系列   —</div>
+        <div class="jiaoChe">
+            <% for(let x = 0 ; x < allCar.length ; x++){%>
+            <% if(i == 3){%>
+            <% i = 0;break;%>
+            <%}%>
+            <% if(allCar[x].CatoryId == 3){%>
+            <div class="carBox" data-id="<%=allCar[x].Id%>">
+                <p><img src="<%=allCar[x].feng%>"></p>
+                <p><span class="cheName"><%=allCar[x].title%></span></p>
+                <p>指导价：<span class="zhiDaoJia"><%=allCar[x].summary%></span>元</p>
+            </div>
+            <% i++;%>
+            <%}%>
+            <%}%>
+        </div>
+        <div class="more"><a href="#">查看更多</a></div>
+    </section>
+    <section class="sec3">
+        <div class="Biaoti">—   大众豪华系列   —</div>
+        <% for(let x = 0 ; x < allCar.length ; x++){%>
+        <% if(allCar[x].CatoryId == 4){%>
+        <div class="haohua">
+            <p class="haoHuaImg"><img src="<%=allCar[x].feng%>"></p>
+            <p class="NameTitle"><span class="huaohuaCarName">大众·<%=allCar[x].title%></span> <span class="biaoyu">私人定制、独一无二</span></p>
+            <p class="dingzhi">定制</p>
+        </div>
+        <% break;%>
+        <%}%>
+        <%}%>
+    </section>
+</main>
+<%- include('footer.html')%>
+<script src="js/jq.js"></script>
+<script src="js/ajaxFN.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

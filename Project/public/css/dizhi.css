@@ -1,0 +1,45 @@
+.red{
+    color: red;
+
+}
+.hide{
+    visibility: hidden;
+}
+.loginbox{
+    padding: 30px;
+    padding-top: 0;
+    margin: 150px auto;
+    width: 340px;
+    border: 1px solid #999999;
+}
+.loginbox p{
+    margin: 5px auto;
+}
+.loginbox p:first-child{
+    margin-top: 10px;
+}
+.logintishi{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+input{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 3px solid #999999;
+}
+button{
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    background-color: white;
+    color: #999999;
+    border: 1px solid #999999;
+    transition: all .5s ease;
+}
+button:hover{
+    color: white;
+    background-color: #999999;
+}

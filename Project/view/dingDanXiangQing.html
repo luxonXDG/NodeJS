@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/head.css">
+    <link type="text/css" rel="stylesheet" href="css/foot.css">
+    <link type="text/css" rel="stylesheet" href="css/dingdantianxie.css">
+</head>
+<body>
+<%- include('header.html')%>
+<main>
+    <section>
+        <div>
+            <h2>购车订单详情</h2>
+        </div>
+        <div class="zhuyao">
+            <div>
+                <h3>收货地址</h3>
+            </div>
+            <div class="dizhiBox">
+                <div class="dizhixiangxi">
+                    <div><%=dizhiArr[0].shouhuoren%></div><div><%=dizhiArr[0].dianhua%></div>
+                    <div><%=dizhiArr[0].guo%><%=dizhiArr[0].shen%><%=dizhiArr[0].chen%><%=dizhiArr[0].cheng%><%=dizhiArr[0].qu%><%=dizhiArr[0].jie%></div>
+                </div>
+                <div class="clearfloat"></div>
+            </div>
+            <div class="dingdanDa">
+                <% var d = new Date(dingdanArr[0].CreateTime)%>
+                <% var datetime=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();%>
+                <div class="dingdanBox" data-value="<%=dingdanArr[0].Id%>">
+                    <div>订单号：<span><%=dingdanArr[0].Id%></span></div>
+                    <div>车型：<span><%=dingdanArr[0].title%></span></div>
+                    <div>配置：<span><%=dingdanArr[0].peizhi%></span></div>
+                    <div>价格：<span class="jiage"><%=dingdanArr[0].price%></span></div>
+                    <div>订购时间：<span><%=datetime%></span></div>
+                </div>
+            </div>
+        </div>
+        <% var zongJin = 0%>
+        <% for(let i = 0;i < dingdanArr.length;i++){%>
+        <% zongJin += dingdanArr[i].price%>
+        <%}%>
+        <h3>
+            总金额：<span id="zongJing"><%=zongJin%></span>
+        </h3>
+    </section>
+</main>
+<%- include('footer.html')%>
+<script src="js/jq.js"></script>
+<script src="js/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+main{
+    padding:30px 400px ;
+}
+.honghu{
+    overflow: hidden;
+    box-shadow: 0 0 10px #888888;
+    padding:50px 30px;
+}
+.honghu div{
+    width: 150px;
+    height: 150px;
+    float: left;
+    display: inline-block;
+    font-size: 50px;
+    line-height: 150px;
+    margin-left: 150px;
+}
+.honghu div:nth-child(1){
+    margin-left:0;
+}
+.honghu img{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+}
+.sec2{
+    margin-top: 50px;
+    box-shadow: 0 0 10px #888888;
+    padding: 20px 50px;
+}
+.dingdanBox{
+    box-shadow: 0 0 5px #888888;
+    overflow: hidden;
+    padding: 10px 10px;
+    margin-top: 30px;
+}
+.dingdanBox div{
+    float: left;
+    margin-left:30px;
+}
+.dingdanBox span{
+    font-weight: 600;
+    /*font-size: 20px;*/
+    color: red;
+}
+.dingdanDa{
+    margin-bottom:30px;
+}
+.shouhuoren div{
+    float: left;
+    margin-left: 30px;
+}
+.shouhuoren{
+    overflow: hidden;
+}
+.dizhi div{
+    margin-left: 30px;
+}
+.dizhiHao{
+    box-shadow: 0 0 5px #888888;
+    overflow: hidden;
+    padding: 10px 10px;
+    margin-top: 30px;
+    position: relative;
+}
+.dingwei{
+    position: absolute;
+    right:30px;
+    top:15px
+}
+.dingwei button{
+    width: 80px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    border: none;
+}
+.adddizhi{
+    margin-top: 30px;
+}
+.adddizhi button{
+    width: 150px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #888888;
+}
+.ilike a{
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+}

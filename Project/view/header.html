@@ -1,0 +1,28 @@
+<header>
+    <div class="headerBox">
+        <ul>
+            <!--logo-->
+            <li class="logo" id="logo">DAS AUTO</li>
+            <!--导航-->
+            <li>
+                <ul class="xilie">
+                    <li>大众轿车系列</li>
+                    <li>大众SUV系列</li>
+                    <li>大众旗舰系列</li>
+                    <li>大众豪华系列</li>
+                </ul>
+            </li>
+            <!--登陆注册-->
+            <li class="LandR">
+                <% if(userName) {%>
+                <p><a href="geren.html"><img src="<%=userImg%>" alt=""></a></p>
+                <p><a href="geren.html" class="userName"><%=userName%></a></p>
+                <p><a href="tuichu.do">退出</a></p>
+                <%}else{%>
+                <span><a href="login.html">登陆</a></span>  /
+                <span><a href="reg.html">注册</a></span>
+                <%}%>
+            </li>
+        </ul>
+    </div>
+</header>

@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+main{
+    padding:50px 400px;
+}
+.carTitle{
+    position: relative;
+}
+.carName{
+    color: black;
+    font-size: 30px;
+    font-weight:600;
+    position: absolute;
+    left: 1050px;
+    top:120px;
+}
+.carName span{
+    font-size: 45px;
+}
+.peizhiBiao{
+    border: 1px solid black;
+    padding: 50px 50px;
+}
+#peizhiBiao p:nth-child(1){
+    font-size: 25px;
+    color: #999999;
+}
+.theBox{
+    overflow: hidden;
+}
+.theBox div{
+    float: left;
+    margin-top: 30px;
+}
+.theBox div:nth-child(1){
+    font-size: 20px;
+    color: #626262;
+}
+.dianJiBox1{
+    border: 1px solid #c4c4c4;
+    color: #c4c4c4;
+    background-color: #fff;
+    padding: 5px 30px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+.dianJiBox2{
+    border: 1px solid #c4c4c4;
+    color: #c4c4c4;
+    background-color: #fff;
+    padding: 5px 30px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+.dianjihou{
+    color: white;
+    background-color: #c4c4c4;
+}
+#jiage{
+    color: red;
+    font-size: 20px;
+    margin-right:10px;
+}
+.fR{
+    float: right;
+}
+button{
+    width: 250px;
+    height: 35px;
+    background-color: #ffffff;
+    border: 1px solid #353535;
+    color: #353535;
+    transition: all .5s ease;
+}
+button:hover{
+    background-color:#353535;
+    color: #fff;
+}
+.cheXingpeizhi{
+    width: 100%;
+    border: 1px solid black;
+}
+.cheXingpeizhi td{
+    /*width: 200px;*/
+    text-align: center;
+    border: 1px solid black;
+}
+.carwenzi{
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: center;
+}
